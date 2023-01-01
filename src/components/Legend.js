@@ -21,13 +21,14 @@ class Legend extends React.Component {
   }
 
   render() {
-    return ((this.state.selected_id[0] === this.state.self_id) && (this.props.isClickable === true))? (
+    return this.state.selected_id[0] === this.state.self_id &&
+      this.props.isClickable === true ? (
       <div className="d-flex justify-content-between">
         <div className="d-flex">
           <button className={"legend selected l-" + this.props.id}></button>
-          <h5 className="fw-bold">{this.props.value}</h5>
+          <h6 className="fw-bold">{this.props.value}</h6>
         </div>
-        <h5>{this.props.percentage}</h5>
+        <h6>{this.props.percentage}</h6>
       </div>
     ) : (
       <div className="legend-text d-flex justify-content-between">
@@ -38,9 +39,9 @@ class Legend extends React.Component {
               this.selected();
             }}
           ></button>
-          <h5>{this.props.value}</h5>
+          <h6>{this.props.value}</h6>
         </div>
-        <h5>{this.props.percentage}</h5>
+        <h6>{this.props.percentage}</h6>
       </div>
     );
   }

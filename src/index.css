@@ -19,20 +19,20 @@ body {
 #wrapper {
   margin-left: auto;
   margin-right: auto;
-  width: 1800px;
-  padding-top: 130px;
+  width: 1440px;
+  padding-top: 104px;
 }
 
 /* Matrix */
 .matrix-cell {
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   text-align: center;
   vertical-align: middle;
-  border: 3px solid transparent;
-  margin: 4px;
-  font-size: 15px;
-  border-radius: 5px;
+  border: 2.4px solid transparent;
+  margin: 3.2px;
+  font-size: 12px;
+  border-radius: 4px;
 }
 
 .hand-F {
@@ -56,116 +56,116 @@ body {
 }
 
 .matrix-cell:hover {
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   text-align: center;
   vertical-align: middle;
   background-color: var(--red);
   color: var(--white);
-  border: 3px solid transparent;
-  margin: 4px;
-  font-size: 15px;
-  border-radius: 5px;
+  border: 2.4px solid transparent;
+  margin: 3.2px;
+  font-size: 12px;
+  border-radius: 4px;
 }
 
 /************/
 
 .curr_hand {
-  width: 300px;
-  height: 300px;
+  width: 240px;
+  height: 240px;
   text-align: center;
   vertical-align: middle;
-  border: 3px solid transparent;
-  margin: 1px;
-  font-size: 60px;
-  border-radius: 15px;
+  border: 2.4px solid transparent;
+  margin: 0.8px;
+  font-size: 48px;
+  border-radius: 12px;
 }
 
 .suggestion {
-  font-size: 25px;
+  font-size: 20px;
 }
 
 /************/
 
 .position {
-  width: 120px;
-  height: 61px;
+  width: 96px;
+  height: 48.8px;
   text-align: center;
   vertical-align: middle;
   background-color: var(--dark-green);
   color: var(--white);
-  border: 3px solid transparent;
-  font-size: 15px;
-  border-radius: 10px;
+  border: 2.4px solid transparent;
+  font-size: 12px;
+  border-radius: 8px;
 }
 
 .position-on {
-  width: 120px;
-  height: 61px;
+  width: 96px;
+  height: 48.8px;
   text-align: center;
   vertical-align: middle;
   background-color: var(--cream);
   color: var(--red);
-  border: 3px solid transparent;
-  font-size: 15px;
-  border-radius: 10px;
+  border: 2.4px solid transparent;
+  font-size: 12px;
+  border-radius: 8px;
 }
 
 .positionoff {
-  width: 120px;
-  height: 61px;
+  width: 96px;
+  height: 48.8px;
   text-align: center;
   vertical-align: middle;
   background-color: var(--grey);
   color: var(--white);
-  border: 3px solid transparent;
-  font-size: 15px;
-  border-radius: 10px;
+  border: 2.4px solid transparent;
+  font-size: 12px;
+  border-radius: 8px;
 }
 
 .action {
-  width: 61px;
-  height: 61px;
+  width: 48.8px;
+  height: 48.8px;
   text-align: center;
   vertical-align: middle;
   background-color: var(--dark-green);
   color: var(--white);
-  border: 3px solid transparent;
-  font-size: 15px;
-  border-radius: 10px;
-  margin-right: 7px;
+  border: 2.4px solid transparent;
+  font-size: 12px;
+  border-radius: 8px;
+  margin-right: 5.6px;
 }
 
 .action-on {
-  width: 61px;
-  height: 61px;
+  width: 48.8px;
+  height: 48.8px;
   text-align: center;
   vertical-align: middle;
   background-color: var(--cream);
   color: var(--black);
-  border: 3px solid transparent;
-  font-size: 15px;
-  border-radius: 10px;
-  margin-right: 5px;
+  border: 2.4px solid transparent;
+  font-size: 12px;
+  border-radius: 8px;
+  margin-right: 5.6px;
 }
 
 .actionoff {
-  width: 61px;
-  height: 61px;
+  width: 48.8px;
+  height: 48.8px;
   text-align: center;
   vertical-align: middle;
   background-color: var(--grey);
   color: var(--white);
-  border: 3px solid transparent;
-  font-size: 15px;
-  border-radius: 10px;
-  margin-right: 5px;
+  border: 2.4px solid transparent;
+  font-size: 12px;
+  border-radius: 8px;
+  margin-right: 5.6px;
 }
 
 /* document.getElementsByClassName("mx-4")[0].offsetHeight */
 .Actions {
-  margin-top: 2px;
-  height: 749px;
+  margin-top: 1.6px;
+  height: 599.2px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -176,9 +176,9 @@ body {
 .webtitle {
   background-color: var(--dark-green);
   color: var(--white);
-  height: 100px;
+  height: 80px;
   width: 100%;
-  font-size: 35px;
+  font-size: 28px;
   position: fixed;
 }
 
@@ -187,7 +187,7 @@ body {
   background-color: transparent;
   border: transparent;
   width: 50px;
-  margin-left: 10px;
+  margin-left: 8px;
 }
 
 input:focus,
@@ -216,7 +216,7 @@ button:focus {
 
 .legend-box {
   background-color: var(--dark-green);
-  border-radius: 10px;
+  border-radius: 8px;
 }
 
 .legend-text {
@@ -224,12 +224,12 @@ button:focus {
 }
 
 .legend {
-  height: 25px;
-  width: 25px;
-  border-radius: 10px;
-  margin-right: 10px;
-  margin-bottom: 7.5px;
-  border: 2px solid var(--white);
+  height: 20px;
+  width: 20px;
+  border-radius: 9px;
+  margin-right: 9px;
+  margin-bottom: 6px;
+  border: 1.6px solid var(--white);
 }
 
 .selected {
@@ -240,8 +240,8 @@ button:focus {
   color: var(--white);
   background-color: transparent;
   border: transparent;
-  font-size: 15px;
-  margin-right: 20px;
+  font-size: 12px;
+  margin-right: 16px;
 }
 
 .l-0 {
@@ -258,54 +258,55 @@ button:focus {
 }
 
 .degen {
-  margin-left: 50px;
+  margin-left: 40px;
 }
 
 .nav {
-  margin-right: 15px;
+  margin-right: 12px;
 }
 /************/
 
 .chart-title {
-  height: 75px;
-  margin-bottom: 15px;
-  margin-left: 15px;
+  height: 60px;
+  margin-bottom: 12px;
+  margin-left: 12px;
   text-align: center;
   vertical-align: middle;
-  border: 3px solid transparent;
+  border: 2.4px solid transparent;
   background-color: var(--medium-brown);
   color: var(--white);
-  font-size: 22px;
-  border-radius: 10px;
+  font-size: 17.6px;
+  border-radius: 8px;
 }
 
 /************/
 
 .hand-history {
-  margin-top: 17px;
-  border-radius: 15px;
+  margin-top: 13.6px;
+  border-radius: 12px;
   color: var(--white);
   background-color: var(--dark-green);
-  height: 235px;
-  padding: 15px;
+  height: 173px;
+  padding: 12px;
 }
 
 .block {
-  height: 200px;
-  padding-left: 15px;
-  padding-right: 15px;
-  padding-bottom: 15px;
-  padding-top: 5px;
-  border-radius: 15px;
+  height: 140px;
+  padding-left: 12px;
+  padding-right: 12px;
+  padding-bottom: 12px;
+  padding-top: 4px;
+  border-radius: 12px;
+  font-size: 13px;
   overflow-y: scroll;
 }
 
 ::-webkit-scrollbar {
   -webkit-appearance: none;
-  width: 7px;
+  width: 5.6px;
 }
 
 ::-webkit-scrollbar-thumb {
-  border-radius: 4px;
+  border-radius: 3.2px;
   background-color: rgba(0, 0, 0, 0.5);
 }

@@ -162,9 +162,9 @@ class Page extends React.Component {
                   </div>
                   <div className="hand-history">
                     <div className="block">
-                      <h3>
+                      <h4>
                         <u>Hand Action</u>
-                      </h3>
+                      </h4>
                       <div className="">
                         {this.state.homePage.actions.map((ele, index) => {
                           console.log(this.state.homePage.actions);
