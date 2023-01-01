@@ -182,6 +182,9 @@ body {
   position: fixed;
 }
 
+.webtitletext {
+  vertical-align: middle;
+}
 .num-players {
   color: var(--white);
   background-color: transparent;
