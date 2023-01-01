@@ -1,0 +1,311 @@
+:root {
+  --green: #01695b;
+  --black: #2b1307;
+  --white: #fff7df;
+  --dark-green: #1b241d;
+  --brown: #7e4210;
+  --pink: #975653;
+  --red: #580205;
+  --cream: #efba8e;
+  --light-brown: #e89c60;
+  --medium-brown: #cb7226;
+  --grey: gray;
+}
+
+body {
+  background-color: #01695b;
+}
+
+#wrapper {
+  margin-left: auto;
+  margin-right: auto;
+  width: 1800px;
+  padding-top: 130px;
+}
+
+/* Matrix */
+.matrix-cell {
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  vertical-align: middle;
+  border: 3px solid transparent;
+  margin: 4px;
+  font-size: 15px;
+  border-radius: 5px;
+}
+
+.hand-F {
+  background-color: var(--white);
+  color: var(--black);
+}
+
+.hand-R {
+  background-color: var(--red);
+  color: var(--white);
+}
+
+.hand-C {
+  background-color: var(--medium-brown);
+  color: var(--white);
+}
+
+.hand-B {
+  background-color: var(--dark-green);
+  color: var(--white);
+}
+
+.matrix-cell:hover {
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  vertical-align: middle;
+  background-color: var(--red);
+  color: var(--white);
+  border: 3px solid transparent;
+  margin: 4px;
+  font-size: 15px;
+  border-radius: 5px;
+}
+
+/************/
+
+.curr_hand {
+  width: 300px;
+  height: 300px;
+  text-align: center;
+  vertical-align: middle;
+  border: 3px solid transparent;
+  margin: 1px;
+  font-size: 60px;
+  border-radius: 15px;
+}
+
+.suggestion {
+  font-size: 25px;
+}
+
+/************/
+
+.position {
+  width: 120px;
+  height: 61px;
+  text-align: center;
+  vertical-align: middle;
+  background-color: var(--dark-green);
+  color: var(--white);
+  border: 3px solid transparent;
+  font-size: 15px;
+  border-radius: 10px;
+}
+
+.position-on {
+  width: 120px;
+  height: 61px;
+  text-align: center;
+  vertical-align: middle;
+  background-color: var(--cream);
+  color: var(--red);
+  border: 3px solid transparent;
+  font-size: 15px;
+  border-radius: 10px;
+}
+
+.positionoff {
+  width: 120px;
+  height: 61px;
+  text-align: center;
+  vertical-align: middle;
+  background-color: var(--grey);
+  color: var(--white);
+  border: 3px solid transparent;
+  font-size: 15px;
+  border-radius: 10px;
+}
+
+.action {
+  width: 61px;
+  height: 61px;
+  text-align: center;
+  vertical-align: middle;
+  background-color: var(--dark-green);
+  color: var(--white);
+  border: 3px solid transparent;
+  font-size: 15px;
+  border-radius: 10px;
+  margin-right: 7px;
+}
+
+.action-on {
+  width: 61px;
+  height: 61px;
+  text-align: center;
+  vertical-align: middle;
+  background-color: var(--cream);
+  color: var(--black);
+  border: 3px solid transparent;
+  font-size: 15px;
+  border-radius: 10px;
+  margin-right: 5px;
+}
+
+.actionoff {
+  width: 61px;
+  height: 61px;
+  text-align: center;
+  vertical-align: middle;
+  background-color: var(--grey);
+  color: var(--white);
+  border: 3px solid transparent;
+  font-size: 15px;
+  border-radius: 10px;
+  margin-right: 5px;
+}
+
+/* document.getElementsByClassName("mx-4")[0].offsetHeight */
+.Actions {
+  margin-top: 2px;
+  height: 749px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/************/
+
+.webtitle {
+  background-color: var(--dark-green);
+  color: var(--white);
+  height: 100px;
+  width: 100%;
+  font-size: 35px;
+  position: fixed;
+}
+
+.num-players {
+  color: var(--white);
+  background-color: transparent;
+  border: transparent;
+  width: 50px;
+  margin-left: 10px;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+  outline: none;
+}
+/*
+.num-players-controller {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: px;
+}
+
+.num-players-button {
+  background-color: transparent;
+  color: var(--white);
+  height: 40px;
+  font-size: 20px;
+}
+*/
+
+/************/
+
+.legend-box {
+  background-color: var(--dark-green);
+  border-radius: 10px;
+}
+
+.legend-text {
+  color: var(--white);
+}
+
+.legend {
+  height: 25px;
+  width: 25px;
+  border-radius: 10px;
+  margin-right: 10px;
+  margin-bottom: 7.5px;
+  border: 2px solid var(--white);
+}
+
+.selected {
+  border-radius: 0px;
+}
+
+.page {
+  color: var(--white);
+  background-color: transparent;
+  border: transparent;
+  font-size: 15px;
+  margin-right: 20px;
+}
+
+.l-0 {
+  background-color: var(--red);
+}
+.l-1 {
+  background-color: var(--medium-brown);
+}
+.l-2 {
+  background-color: var(--dark-green);
+}
+.l-3 {
+  background-color: var(--white);
+}
+
+.degen {
+  margin-left: 50px;
+}
+
+.nav {
+  margin-right: 15px;
+}
+/************/
+
+.chart-title {
+  height: 75px;
+  margin-bottom: 15px;
+  margin-left: 15px;
+  text-align: center;
+  vertical-align: middle;
+  border: 3px solid transparent;
+  background-color: var(--medium-brown);
+  color: var(--white);
+  font-size: 22px;
+  border-radius: 10px;
+}
+
+/************/
+
+.hand-history {
+  margin-top: 17px;
+  border-radius: 15px;
+  color: var(--white);
+  background-color: var(--dark-green);
+  height: 235px;
+  padding: 15px;
+}
+
+.block {
+  height: 200px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 15px;
+  padding-top: 5px;
+  border-radius: 15px;
+  overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
