@@ -12,7 +12,7 @@ function Navigation(props) {
         ></Players>
       </div>
       <div className="nav">
-        <button
+        {/*<button
           className="page"
           onClick={() => {
             props.changePage("homePage");
@@ -27,7 +27,7 @@ function Navigation(props) {
           }}
         >
           Range Constructor
-        </button>
+        </button>*/}
       </div>
     </div>
   );

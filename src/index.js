@@ -20,7 +20,7 @@ class Page extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      curr_page: "rangeConstructorPage",
+      curr_page: "homePage",
       homePage: {
         open_pos: 0,
         curr_index: 0,
