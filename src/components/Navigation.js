@@ -2,7 +2,7 @@ import Players from "./Players.js";
 
 function Navigation(props) {
   return (
-    <div className="webtitle d-flex justify-content-between py-4 mb-5 text-center align-middle">
+    <div className="webtitle d-flex justify-content-between align-items-center">
       <div className="webtitletext d-flex">
         <div className="degen">DEGEN101</div>
         <div className="mx-3">|</div>

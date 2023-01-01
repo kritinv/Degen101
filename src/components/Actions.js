@@ -44,7 +44,7 @@ class Actions extends React.Component {
     this.curr_chart = props.homepage.curr_chart;
     this.state = {
       chart_title: "UTG Open",
-      cannot_open_idx_start: 9,
+      cannot_open_idx_start: 1,
       cannot_raise_idx_end: -1,
       cannot_raise_idx_start: 9,
     };
@@ -55,26 +55,6 @@ class Actions extends React.Component {
     let new_cannot_raise_idx_end = this.state.cannot_raise_idx_end;
     let new_cannot_raise_idx_start = this.state.cannot_raise_idx_start;
     let new_chart_title = this.state.chart_title;
-    // ensures no one can open after current position
-    if (index > this.curr_index && action === "O") {
-      return;
-    }
-    // ensures there must be someone opening all the time
-    if (action !== "O" && index === this.open_pos) {
-      return;
-    }
-    // ensures you cannot raise before someone opens
-    if (action === "R" && index < this.open_pos) {
-      return;
-    }
-    // ensures LP cannot raise if EP Opens
-    if (
-      action === "R" &&
-      this.curr_index > this.open_pos &&
-      index >= this.curr_index
-    ) {
-      return;
-    }
 
     this.actions[index] = action;
     if (action === "O") {
@@ -111,7 +91,11 @@ class Actions extends React.Component {
       }
       if (index < this.curr_index && index > this.open_pos) {
         this.curr_chart = vs_3betcold[this.curr_index - 2];
-        new_chart_title = " vs. " + positions[index] + " 3-bet Cold";
+        new_chart_title =
+          positions[this.curr_index] +
+          " vs. " +
+          positions[index] +
+          " 3-bet Cold";
       }
       if (index > this.curr_index) {
         this.curr_chart =
@@ -180,7 +164,7 @@ class Actions extends React.Component {
                     <ActionOff value="R"></ActionOff>
                   )}
 
-                  {index < this.state.cannot_open_idx_start ? (
+                  {index < this.state.cannot_open_idx_start && index < 8 ? (
                     <Action
                       value={"O"}
                       action={this.actions[index]}

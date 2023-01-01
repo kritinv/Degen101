@@ -178,13 +178,14 @@ body {
   color: var(--white);
   height: 80px;
   width: 100%;
-  font-size: 28px;
   position: fixed;
 }
 
 .webtitletext {
-  vertical-align: middle;
+  margin-top: 15px;
+  font-size: 28px;
 }
+
 .num-players {
   color: var(--white);
   background-color: transparent;
