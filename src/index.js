@@ -171,9 +171,9 @@ class Page extends React.Component {
                           return (
                             <div>
                               <strong>{positions[index]}</strong>{" "}
-                              {ele == "F"
+                              {ele === "F"
                                 ? "Folds"
-                                : ele == "O"
+                                : ele === "O"
                                 ? "Opens"
                                 : "Raises"}
                             </div>
