@@ -23,8 +23,6 @@ body {
   --light-brown: #e89c60;
   --medium-brown: #cb7226;
   --grey: gray;
-  --screenheight: 0;
-  --screenwidth: 0;
 }
 /************/
 
@@ -35,32 +33,32 @@ body {
   top: 0px;
   background-color: var(--dark-green);
   color: var(--white);
-  height: calc(6.25px * var(--screenheight));
-  padding: calc(1px * var(--screenheight));
+  height: 85px;
+  padding: 14px;
   width: 100%;
 }
 
 .web-title {
-  font-size: calc(2px * var(--screenheight));
+  font-size: 30px;
 }
 
 .degen {
-  margin-left: calc(2px * var(--screenheight));
+  margin-left: 4vw;
 }
 
 .num-players-input {
   border: transparent;
   color: var(--white);
   background-color: transparent;
-  width: calc(6.5px * var(--screenwidth));
-  margin-left: calc(0.5px * var(--screenheight));
+  width: 50px;
+  margin-left: 0.5vw;
 }
 /************/
 
 /* Action */
 
 .actions {
-  height: calc(42px * var(--screenheight));
+  height: 81vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -72,22 +70,22 @@ body {
   border: transparent;
   background-color: var(--medium-brown);
   color: var(--white);
-  font-size: calc(1.2px * var(--screenheight));
-  border-radius: calc(0.5px * var(--screenheight));
+  font-size: 18px;
+  border-radius: 8px;
 }
 
 .actions-row {
-  height: 8.3%;
+  height: 9%;
 }
 
 .position {
-  width: calc(15px * var(--screenwidth));
+  width: 7vw;
   height: 100%;
   text-align: center;
   vertical-align: middle;
   border: transparent;
-  font-size: calc(0.8px * var(--screenheight));
-  border-radius: calc(0.5px * var(--screenheight));
+  font-size: 12px;
+  border-radius: 1vh;
 }
 .position-off {
   background-color: var(--dark-green);
@@ -103,14 +101,14 @@ body {
 }
 
 .action {
-  width: calc(6.75px * var(--screenwidth));
+  width: 3.5vw;
   height: 100%;
   text-align: center;
   vertical-align: middle;
   border: transparent;
-  font-size: calc(0.8px * var(--screenheight));
-  border-radius: calc(0.5px * var(--screenheight));
-  margin-left: calc(1.4px * var(--screenwidth));
+  font-size: 12px;
+  border-radius: 8px;
+  margin-left: 0.7vw;
 }
 .action-off {
   background-color: var(--dark-green);
@@ -130,36 +128,35 @@ body {
 
 /* Matrix */
 .matrix {
-  height: calc(42px * var(--screenheight));
-  width: calc(42px * var(--screenheight));
+  height: 81vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  margin-left: calc(3px * var(--screenwidth));
-  margin-right: calc(2px * var(--screenwidth));
+  margin-left: 2vw;
+  margin-right: 1.5vw;
 }
 
 .matrix-cell {
-  width: calc(2.7px * var(--screenheight));
-  height: calc(2.7px * var(--screenheight));
+  width: 5.4vh;
+  height: 5.4vh;
   text-align: center;
   vertical-align: middle;
   border: transparent;
-  font-size: calc(0.7px * var(--screenheight));
-  border-radius: calc(0.4px * var(--screenheight));
-  margin-right: calc(1px * var(--screenwidth));
+  font-size: 1.6vh;
+  border-radius: 4px;
+  margin-right: 0.5vw;
 }
 
 .matrix-cell:hover {
-  width: calc(2.7px * var(--screenheight));
-  height: calc(2.7px * var(--screenheight));
+  width: 5.4vh;
+  height: 5.4vh;
   text-align: center;
   vertical-align: middle;
-  background-color: var(--pink);
+  background-color: var(--red);
   color: var(--white);
-  font-size: calc(0.7px * var(--screenheight));
-  border-radius: calc(0.4px * var(--screenheight));
-  margin-right: calc(1px * var(--screenwidth));
+  font-size: 1.6vh;
+  border-radius: 4px;
+  margin-right: 0.5vw;
 }
 
 .hand-F {
@@ -183,26 +180,26 @@ body {
 
 /* Right Panel */
 .right-panel {
-  height: calc(42px * var(--screenheight));
+  height: 81vh;
 }
 .curr_hand {
-  width: calc(33.5px * var(--screenwidth));
+  width: 16.7vw;
   height: 50%;
   text-align: center;
   vertical-align: middle;
   border: transparent;
-  font-size: calc(3px * var(--screenheight));
-  border-radius: calc(1px * var(--screenheight));
+  font-size: 48px;
+  border-radius: 12px;
 }
 .suggestion {
-  font-size: calc(2.5px * var(--screenwidth));
+  font-size: 20px;
 }
 
 .legend-container {
-  margin-top: calc(0.8px * var(--screenheight));
-  margin-bottom: calc(0.8px * var(--screenheight));
+  margin-top: 1.3vh;
+  margin-bottom: 1.3vh;
   background-color: var(--dark-green);
-  border-radius: calc(1px * var(--screenheight));
+  border-radius: 8px;
   height: 35%;
   display: flex;
   align-items: center;
@@ -215,15 +212,15 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  font-size: calc(1px * var(--screenheight));
+  font-size: 2vh;
 }
 .legend-color {
-  height: calc(1.5px * var(--screenheight));
-  width: calc(1.5px * var(--screenheight));
-  border-radius: calc(0.6px * var(--screenheight));
-  margin-right: calc(1px * var(--screenheight));
-  margin-bottom: calc(0.5px * var(--screenheight));
-  border: calc(0.15px * var(--screenheight)) solid var(--white);
+  height: 3vh;
+  width: 3vh;
+  border-radius: 9px;
+  margin-right: 9px;
+  margin-bottom: 1vh;
+  border: 1.6px solid var(--white);
 }
 .l-0 {
   background-color: var(--red);
@@ -239,19 +236,20 @@ body {
 }
 
 .hand-history {
-  border-radius: calc(1px * var(--screenheight));
+  border-radius: 12px;
   color: var(--white);
   background-color: var(--dark-green);
   height: 35%;
-  padding: calc(1px * var(--screenheight));
+  padding: 12px;
 }
 
 .block {
-  height: calc(10px * var(--screenheight));
+  height: 140px;
   padding-left: 12px;
   padding-right: 12px;
   padding-bottom: 12px;
   padding-top: 4px;
+  border-radius: 12px;
   font-size: 13px;
   overflow-y: scroll;
 }
