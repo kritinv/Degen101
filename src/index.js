@@ -3,7 +3,6 @@ import ReactDOM from "react-dom/client";
 import { positions, rfi, std_matrix } from "./data.js";
 import "bootstrap/dist/css/bootstrap.css";
 import "./index.css";
-import Joyride from "react-joyride";
 
 import Matrix from "./components/Matrix.js";
 import Legend from "./components/Legend.js";
