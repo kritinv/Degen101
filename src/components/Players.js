@@ -2,11 +2,11 @@ import React from "react";
 export default function Players(props) {
   let val = props.homePage.num_players;
   return (
-    <div className="d-flex">
-      <p>Players: </p>
-      <div className="align-bottom ">
+    <div className="d-flex player-joyride">
+      <div>Players: </div>
+      <div>
         <input
-          className="num-players"
+          className="num-players-input"
           type="number"
           value={val}
           onChange={(e) => {
@@ -17,12 +17,6 @@ export default function Players(props) {
             }
           }}
         />
-        {/*
-      <div className="num-players-controller">
-        <button className="num-players-button">+</button>
-        <button className="num-players-button">-</button>
-      </div>
-         */}
       </div>
     </div>
   );

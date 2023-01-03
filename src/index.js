@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import { positions, rfi, std_matrix } from "./data.js";
 import "bootstrap/dist/css/bootstrap.css";
 import "./index.css";
+import Joyride from "react-joyride";
 
 import Matrix from "./components/Matrix.js";
 import Legend from "./components/Legend.js";
@@ -21,6 +22,7 @@ class Page extends React.Component {
     super(props);
     this.state = {
       curr_page: "homePage",
+
       homePage: {
         open_pos: 0,
         curr_index: 0,
@@ -82,8 +84,42 @@ class Page extends React.Component {
   }
 
   render() {
+    var r = document.querySelector(":root");
+    r.style.setProperty("--screenheight", window.innerWidth / 100);
+    r.style.setProperty("--screenwidth", window.innerHeight / 100);
+    console.log(window.innerWidth);
+    console.log(window.innerHeight);
+
     return (
       <div>
+        {
+          //Joyride
+          /*<Joyride
+          steps={[
+            {
+              target: ".player-joyride",
+              content: "This is my awesome feature!",
+            },
+            {
+              target: ".action-joyride",
+              content: "This another awesome feature!",
+            },
+            {
+              target: ".chart-title-joyride",
+              content: "This another awesome feature!",
+            },
+            {
+              target: ".matrix-joyride",
+              content: "This another awesome feature!",
+            },
+            {
+              target: ".legend-joyride",
+              content: "This another awesome feature!",
+            },
+          ]}
+        /> */
+        }
+
         {/* Navigation Bar */}
         <Navigation
           updateHomePage={(i) => this.updateHomePage(i)}
@@ -91,7 +127,7 @@ class Page extends React.Component {
           changePage={(i) => this.changePage(i)}
         ></Navigation>
 
-        <div id="wrapper">
+        <div className="site-content flex-column justify-content-center">
           {/* Home Page */}
           {this.state.curr_page === "homePage" ? (
             <div>
@@ -105,7 +141,7 @@ class Page extends React.Component {
                     this.updateHomePage(chart);
                   }}
                 ></Actions>
-                <div>
+                <div className="matrix-joyride">
                   <Matrix
                     curr_chart={this.state.homePage.curr_chart}
                     chart={std_matrix}
@@ -115,7 +151,7 @@ class Page extends React.Component {
                   ></Matrix>
                 </div>
 
-                <div className="d-flex flex-column">
+                <div className="right-panel d-flex flex-column">
                   <button
                     className={
                       "curr_hand " + this.state.homePage.curr_hand_color
@@ -128,37 +164,41 @@ class Page extends React.Component {
                       </div>
                     </div>
                   </button>
-                  <div className="my-2"></div>
-                  <div className="legend-box p-4 d-flex flex-column">
-                    {["Raise", "Call", "Bluff Raise", "Fold"].map((ele, i) => {
-                      // calculate percentage
-                      let chart = this.state.homePage.curr_chart;
-                      let combos = 0;
-                      for (var r = 0; r < chart.length; r++) {
-                        for (var c = 0; c < chart[r].length; c++) {
-                          if (chart[r][c] === ele[0]) {
-                            if (r === c)
-                              // pocket pair
-                              combos += 6;
-                            else if (r < c)
-                              // suited hand
-                              combos += 4;
-                            else combos += 12;
-                          }
-                        }
-                      }
-                      let percentage = combos / 1326;
 
-                      return (
-                        <Legend
-                          value={ele}
-                          id={i}
-                          selected_id={[5]}
-                          percentage={(percentage * 100).toFixed(2) + " %"}
-                          isClickable={false}
-                        ></Legend>
-                      );
-                    })}
+                  <div className="legend-joyride legend-container">
+                    <div className="legend-joyride legend-box">
+                      {["Raise", "Call", "Bluff Raise", "Fold"].map(
+                        (ele, i) => {
+                          // calculate percentage
+                          let chart = this.state.homePage.curr_chart;
+                          let combos = 0;
+                          for (var r = 0; r < chart.length; r++) {
+                            for (var c = 0; c < chart[r].length; c++) {
+                              if (chart[r][c] === ele[0]) {
+                                if (r === c)
+                                  // pocket pair
+                                  combos += 6;
+                                else if (r < c)
+                                  // suited hand
+                                  combos += 4;
+                                else combos += 12;
+                              }
+                            }
+                          }
+                          let percentage = combos / 1326;
+
+                          return (
+                            <Legend
+                              value={ele}
+                              id={i}
+                              selected_id={[5]}
+                              percentage={(percentage * 100).toFixed(2) + " %"}
+                              isClickable={false}
+                            ></Legend>
+                          );
+                        }
+                      )}
+                    </div>
                   </div>
                   <div className="hand-history">
                     <div className="block">
@@ -167,7 +207,6 @@ class Page extends React.Component {
                       </h4>
                       <div className="">
                         {this.state.homePage.actions.map((ele, index) => {
-                          console.log(this.state.homePage.actions);
                           return (
                             <div>
                               <strong>{positions[index]}</strong>{" "}

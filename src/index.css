@@ -1,3 +1,16 @@
+/* Page Settings */
+body {
+  background-color: #01695b;
+}
+
+.site-content {
+  padding-left: 100px;
+  padding-right: 100px;
+  vertical-align: middle;
+  margin-top: 110px;
+  width: 100%;
+}
+
 :root {
   --green: #01695b;
   --black: #2b1307;
@@ -10,244 +23,208 @@
   --light-brown: #e89c60;
   --medium-brown: #cb7226;
   --grey: gray;
+  --screenheight: 0;
+  --screenwidth: 0;
+}
+/************/
+
+/* Navigation Bar */
+.navigation {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  background-color: var(--dark-green);
+  color: var(--white);
+  height: calc(6.25px * var(--screenheight));
+  padding: calc(1px * var(--screenheight));
+  width: 100%;
 }
 
-body {
-  background-color: #01695b;
+.web-title {
+  font-size: calc(2px * var(--screenheight));
 }
 
-#wrapper {
-  margin-left: auto;
-  margin-right: auto;
-  width: 1440px;
-  padding-top: 104px;
+.degen {
+  margin-left: calc(2px * var(--screenheight));
 }
 
-/* Matrix */
-.matrix-cell {
-  width: 40px;
-  height: 40px;
+.num-players-input {
+  border: transparent;
+  color: var(--white);
+  background-color: transparent;
+  width: calc(6.5px * var(--screenwidth));
+  margin-left: calc(0.5px * var(--screenheight));
+}
+/************/
+
+/* Action */
+
+.actions {
+  height: calc(42px * var(--screenheight));
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.chart-title {
+  height: 10%;
+  margin-bottom: 2%;
+  border: transparent;
+  background-color: var(--medium-brown);
+  color: var(--white);
+  font-size: calc(1.2px * var(--screenheight));
+  border-radius: calc(0.5px * var(--screenheight));
+}
+
+.actions-row {
+  height: 8.3%;
+}
+
+.position {
+  width: calc(15px * var(--screenwidth));
+  height: 100%;
   text-align: center;
   vertical-align: middle;
-  border: 2.4px solid transparent;
-  margin: 3.2px;
-  font-size: 12px;
-  border-radius: 4px;
+  border: transparent;
+  font-size: calc(0.8px * var(--screenheight));
+  border-radius: calc(0.5px * var(--screenheight));
+}
+.position-off {
+  background-color: var(--dark-green);
+  color: var(--white);
+}
+.position-on {
+  background-color: var(--cream);
+  color: var(--red);
+}
+.position-dead {
+  background-color: var(--grey);
+  color: var(--white);
+}
+
+.action {
+  width: calc(6.75px * var(--screenwidth));
+  height: 100%;
+  text-align: center;
+  vertical-align: middle;
+  border: transparent;
+  font-size: calc(0.8px * var(--screenheight));
+  border-radius: calc(0.5px * var(--screenheight));
+  margin-left: calc(1.4px * var(--screenwidth));
+}
+.action-off {
+  background-color: var(--dark-green);
+  color: var(--white);
+}
+.action-on {
+  background-color: var(--cream);
+  color: var(--black);
+}
+
+.action-dead {
+  background-color: var(--grey);
+  color: var(--white);
+}
+
+/************/
+
+/* Matrix */
+.matrix {
+  height: calc(42px * var(--screenheight));
+  width: calc(42px * var(--screenheight));
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: calc(3px * var(--screenwidth));
+  margin-right: calc(2px * var(--screenwidth));
+}
+
+.matrix-cell {
+  width: calc(2.7px * var(--screenheight));
+  height: calc(2.7px * var(--screenheight));
+  text-align: center;
+  vertical-align: middle;
+  border: transparent;
+  font-size: calc(0.7px * var(--screenheight));
+  border-radius: calc(0.4px * var(--screenheight));
+  margin-right: calc(1px * var(--screenwidth));
+}
+
+.matrix-cell:hover {
+  width: calc(2.7px * var(--screenheight));
+  height: calc(2.7px * var(--screenheight));
+  text-align: center;
+  vertical-align: middle;
+  background-color: var(--pink);
+  color: var(--white);
+  font-size: calc(0.7px * var(--screenheight));
+  border-radius: calc(0.4px * var(--screenheight));
+  margin-right: calc(1px * var(--screenwidth));
 }
 
 .hand-F {
   background-color: var(--white);
   color: var(--black);
 }
-
 .hand-R {
   background-color: var(--red);
   color: var(--white);
 }
-
 .hand-C {
   background-color: var(--medium-brown);
   color: var(--white);
 }
-
 .hand-B {
   background-color: var(--dark-green);
   color: var(--white);
 }
 
-.matrix-cell:hover {
-  width: 40px;
-  height: 40px;
-  text-align: center;
-  vertical-align: middle;
-  background-color: var(--red);
-  color: var(--white);
-  border: 2.4px solid transparent;
-  margin: 3.2px;
-  font-size: 12px;
-  border-radius: 4px;
-}
-
 /************/
 
+/* Right Panel */
+.right-panel {
+  height: calc(42px * var(--screenheight));
+}
 .curr_hand {
-  width: 240px;
-  height: 240px;
+  width: calc(33.5px * var(--screenwidth));
+  height: 50%;
   text-align: center;
   vertical-align: middle;
-  border: 2.4px solid transparent;
-  margin: 0.8px;
-  font-size: 48px;
-  border-radius: 12px;
+  border: transparent;
+  font-size: calc(3px * var(--screenheight));
+  border-radius: calc(1px * var(--screenheight));
 }
-
 .suggestion {
-  font-size: 20px;
+  font-size: calc(2.5px * var(--screenwidth));
 }
 
-/************/
-
-.position {
-  width: 96px;
-  height: 48.8px;
-  text-align: center;
-  vertical-align: middle;
+.legend-container {
+  margin-top: calc(0.8px * var(--screenheight));
+  margin-bottom: calc(0.8px * var(--screenheight));
   background-color: var(--dark-green);
-  color: var(--white);
-  border: 2.4px solid transparent;
-  font-size: 12px;
-  border-radius: 8px;
-}
-
-.position-on {
-  width: 96px;
-  height: 48.8px;
-  text-align: center;
-  vertical-align: middle;
-  background-color: var(--cream);
-  color: var(--red);
-  border: 2.4px solid transparent;
-  font-size: 12px;
-  border-radius: 8px;
-}
-
-.positionoff {
-  width: 96px;
-  height: 48.8px;
-  text-align: center;
-  vertical-align: middle;
-  background-color: var(--grey);
-  color: var(--white);
-  border: 2.4px solid transparent;
-  font-size: 12px;
-  border-radius: 8px;
-}
-
-.action {
-  width: 48.8px;
-  height: 48.8px;
-  text-align: center;
-  vertical-align: middle;
-  background-color: var(--dark-green);
-  color: var(--white);
-  border: 2.4px solid transparent;
-  font-size: 12px;
-  border-radius: 8px;
-  margin-right: 5.6px;
-}
-
-.action-on {
-  width: 48.8px;
-  height: 48.8px;
-  text-align: center;
-  vertical-align: middle;
-  background-color: var(--cream);
-  color: var(--black);
-  border: 2.4px solid transparent;
-  font-size: 12px;
-  border-radius: 8px;
-  margin-right: 5.6px;
-}
-
-.actionoff {
-  width: 48.8px;
-  height: 48.8px;
-  text-align: center;
-  vertical-align: middle;
-  background-color: var(--grey);
-  color: var(--white);
-  border: 2.4px solid transparent;
-  font-size: 12px;
-  border-radius: 8px;
-  margin-right: 5.6px;
-}
-
-/* document.getElementsByClassName("mx-4")[0].offsetHeight */
-.Actions {
-  margin-top: 1.6px;
-  height: 599.2px;
+  border-radius: calc(1px * var(--screenheight));
+  height: 35%;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-/************/
-
-.webtitle {
-  background-color: var(--dark-green);
-  color: var(--white);
-  height: 80px;
-  width: 100%;
-  position: fixed;
-}
-
-.webtitletext {
-  margin-top: 15px;
-  font-size: 28px;
-}
-
-.num-players {
-  color: var(--white);
-  background-color: transparent;
-  border: transparent;
-  width: 50px;
-  margin-left: 8px;
-}
-
-input:focus,
-select:focus,
-textarea:focus,
-button:focus {
-  outline: none;
-}
-/*
-.num-players-controller {
-  display: flex;
+  align-items: center;
   justify-content: center;
-  flex-direction: column;
-  height: px;
 }
-
-.num-players-button {
-  background-color: transparent;
-  color: var(--white);
-  height: 40px;
-  font-size: 20px;
-}
-*/
-
-/************/
-
 .legend-box {
-  background-color: var(--dark-green);
-  border-radius: 8px;
-}
-
-.legend-text {
+  height: 80%;
+  width: 80%;
   color: var(--white);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: calc(1px * var(--screenheight));
 }
-
-.legend {
-  height: 20px;
-  width: 20px;
-  border-radius: 9px;
-  margin-right: 9px;
-  margin-bottom: 6px;
-  border: 1.6px solid var(--white);
+.legend-color {
+  height: calc(1.5px * var(--screenheight));
+  width: calc(1.5px * var(--screenheight));
+  border-radius: calc(0.6px * var(--screenheight));
+  margin-right: calc(1px * var(--screenheight));
+  margin-bottom: calc(0.5px * var(--screenheight));
+  border: calc(0.15px * var(--screenheight)) solid var(--white);
 }
-
-.selected {
-  border-radius: 0px;
-}
-
-.page {
-  color: var(--white);
-  background-color: transparent;
-  border: transparent;
-  font-size: 12px;
-  margin-right: 16px;
-}
-
 .l-0 {
   background-color: var(--red);
 }
@@ -261,56 +238,49 @@ button:focus {
   background-color: var(--white);
 }
 
-.degen {
-  margin-left: 40px;
+.hand-history {
+  border-radius: calc(1px * var(--screenheight));
+  color: var(--white);
+  background-color: var(--dark-green);
+  height: 35%;
+  padding: calc(1px * var(--screenheight));
+}
+
+.block {
+  height: calc(10px * var(--screenheight));
+  padding-left: 12px;
+  padding-right: 12px;
+  padding-bottom: 12px;
+  padding-top: 4px;
+  font-size: 13px;
+  overflow-y: scroll;
+}
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+  width: 5.6px;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 3.2px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/************/
+
+/************/
+
+.selected {
+  border-radius: 0px;
+}
+
+.page {
+  color: var(--white);
+  background-color: transparent;
+  border: transparent;
+  font-size: 12px;
+  margin-right: 16px;
 }
 
 .nav {
   margin-right: 12px;
 }
 /************/
-
-.chart-title {
-  height: 60px;
-  margin-bottom: 12px;
-  margin-left: 12px;
-  text-align: center;
-  vertical-align: middle;
-  border: 2.4px solid transparent;
-  background-color: var(--medium-brown);
-  color: var(--white);
-  font-size: 17.6px;
-  border-radius: 8px;
-}
-
-/************/
-
-.hand-history {
-  margin-top: 13.6px;
-  border-radius: 12px;
-  color: var(--white);
-  background-color: var(--dark-green);
-  height: 173px;
-  padding: 12px;
-}
-
-.block {
-  height: 140px;
-  padding-left: 12px;
-  padding-right: 12px;
-  padding-bottom: 12px;
-  padding-top: 4px;
-  border-radius: 12px;
-  font-size: 13px;
-  overflow-y: scroll;
-}
-
-::-webkit-scrollbar {
-  -webkit-appearance: none;
-  width: 5.6px;
-}
-
-::-webkit-scrollbar-thumb {
-  border-radius: 3.2px;
-  background-color: rgba(0, 0, 0, 0.5);
-}

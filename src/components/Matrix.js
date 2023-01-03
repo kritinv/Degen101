@@ -41,7 +41,7 @@ class Matrix extends React.Component {
 
   generateMatrix(matrix, preflop_chart) {
     return (
-      <div className="mx-4">
+      <div className="matrix">
         {matrix.map((row, index) => {
           return this.generateMatrixRow(row, preflop_chart[index]);
         })}

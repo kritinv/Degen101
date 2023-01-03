@@ -3,11 +3,11 @@ import { vs_3betcold, rfi_vs_3bet, vs_rfi, rfi, positions } from "./../data.js";
 
 function Action(props) {
   return props.action === props.value ? (
-    <button className="action-on" onClick={props.changeAction}>
+    <button className="action action-on" onClick={props.changeAction}>
       {props.value}
     </button>
   ) : (
-    <button className="action" onClick={props.changeAction}>
+    <button className="action action-off" onClick={props.changeAction}>
       {props.value}
     </button>
   );
@@ -16,23 +16,26 @@ function Action(props) {
 function Position(props) {
   return props.curr_index === props.index ? (
     <div>
-      <button className="position-on mx-3">{props.value}</button>
+      <button className="position position-on">{props.value}</button>
     </div>
   ) : (
     <div>
-      <button className="position mx-3" onClick={props.changeCurrPosition}>
+      <button
+        className="position position-off"
+        onClick={props.changeCurrPosition}
+      >
         {props.value}
       </button>
     </div>
   );
 }
 
-function ActionOff(props) {
-  return <button className="actionoff">{props.value}</button>;
+function PositionDead(props) {
+  return <button className="position position-dead">{props.value}</button>;
 }
 
-function PositionOff(props) {
-  return <button className="positionoff mx-3">{props.value}</button>;
+function ActionDead(props) {
+  return <button className="action action-dead">{props.value}</button>;
 }
 
 class Actions extends React.Component {
@@ -135,12 +138,14 @@ class Actions extends React.Component {
   render() {
     return (
       <div>
-        <div className="Actions">
-          <button className="chart-title">{this.state.chart_title}</button>
+        <div className="actions">
+          <button className="chart-title chart-title-joyride">
+            {this.state.chart_title}
+          </button>
           {positions.map((i, index) => {
             if (index >= 9 - this.props.homepage.num_players) {
               return (
-                <div className="d-flex">
+                <div className="action-joyride actions-row d-flex">
                   <Position
                     value={i}
                     curr_index={this.curr_index}
@@ -161,7 +166,7 @@ class Actions extends React.Component {
                       }}
                     ></Action>
                   ) : (
-                    <ActionOff value="R"></ActionOff>
+                    <ActionDead value="R"></ActionDead>
                   )}
 
                   {index < this.state.cannot_open_idx_start && index < 8 ? (
@@ -173,7 +178,7 @@ class Actions extends React.Component {
                       }}
                     ></Action>
                   ) : (
-                    <ActionOff value={"O"}></ActionOff>
+                    <ActionDead value={"O"}></ActionDead>
                   )}
 
                   {index !== this.open_pos ? (
@@ -185,16 +190,16 @@ class Actions extends React.Component {
                       }}
                     ></Action>
                   ) : (
-                    <ActionOff value={"F"}></ActionOff>
+                    <ActionDead value={"F"}></ActionDead>
                   )}
                 </div>
               );
             } else {
               return (
                 <div className="d-flex">
-                  <PositionOff value={i}></PositionOff>
+                  <PositionDead value={i}></PositionDead>
                   {["R", "O", "F"].map((a) => {
-                    return <ActionOff value={a}></ActionOff>;
+                    return <ActionDead value={a}></ActionDead>;
                   })}
                 </div>
               );
