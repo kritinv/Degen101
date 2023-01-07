@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { tutorial, positions, rfi, std_matrix } from "./data.js";
+import { tutorial, positions, std_matrix } from "./data.js";
 import "bootstrap/dist/css/bootstrap.css";
 import "./index.css";
 
@@ -196,7 +196,7 @@ class Page extends React.Component {
       var r = document.querySelector(":root");
       r.style.setProperty("--screenheight", window.screen.availHeight * 0.9);
       r.style.setProperty("--screenwidth", window.screen.width);
-      this.state.first_load = false;
+      this.setState({ first_load: false });
     }
 
     return (
@@ -242,9 +242,7 @@ class Page extends React.Component {
                   onMouseOver={(i, j) => {
                     this.onHover(i, j);
                   }}
-                  onMouseDown={(i, j) => {
-                    
-                  }}
+                  onMouseDown={(i, j) => {}}
                 ></Matrix>
               </div>
 

@@ -1,5 +1,4 @@
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
+import Modal from "react-bootstrap/Modal";
 
 function VerticallyCenteredModal(props) {
   return (
@@ -15,9 +14,7 @@ function VerticallyCenteredModal(props) {
           {props.heading}
         </Modal.Title>
       </Modal.Header>
-      <Modal.Body>
-        {props.children}
-      </Modal.Body>
+      <Modal.Body>{props.children}</Modal.Body>
       {/* <Modal.Footer>
         <Button onClick={props.onHide}>Close</Button>
       </Modal.Footer> */}
@@ -25,4 +22,4 @@ function VerticallyCenteredModal(props) {
   );
 }
 
-export {VerticallyCenteredModal}
+export { VerticallyCenteredModal };

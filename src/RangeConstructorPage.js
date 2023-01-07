@@ -2,13 +2,11 @@ import React from "react";
 import RangeConstructorMatrix from "./components/RangeConstructorMatrix";
 import { TreeComponent } from "./components/FileTree";
 
-import treeFileRoot from "./components/resource/treeData";
 import { deepCopyTree } from "./components/resource/tree";
-import { saveAs } from "file-saver";
 
 import Alert from "react-bootstrap/Alert";
 
-import html2canvas from 'html2canvas';
+import html2canvas from "html2canvas";
 import { VerticallyCenteredModal } from "./components/Model";
 
 const helperArray = [
@@ -53,15 +51,13 @@ class RangeConstructorPage extends React.Component {
     window.localStorage.setItem("data", JSON.stringify(newTree));
     this.props.loadData(this.state.chart_title);
     this.setState({
-      saved:true
-    })
+      saved: true,
+    });
     setTimeout(() => {
       this.setState({
-        saved:false
-      })
-    }, 1000)
-
-    
+        saved: false,
+      });
+    }, 1000);
   }
 
   reset() {
@@ -77,35 +73,32 @@ class RangeConstructorPage extends React.Component {
   download() {
     // var data = structuredClone(this.props.rangeConstructorPage.treeFileRoot)
     // var fileName = 'myData.json';
-    
+
     // // Create a blob of the data
     // var fileToSave = new Blob([JSON.stringify(data)], {
     //     type: 'application/json'
     // });
-    
+
     // // Save the file
     // saveAs(fileToSave, fileName);
 
     this.setState({
-      modalShow:true
-    })
-
-    html2canvas(document.getElementById('screenshot'), {
-      onclone: function (clonedDoc) {
-        clonedDoc.getElementById('screenshot').style.display = 'block';
-      }
-    }).then(function(canvas) {
-      console.log("modal show")
-      canvas.style.height="70%"
-      canvas.style.width="100%"
-      document.getElementById('screenshot-result').appendChild(canvas);
+      modalShow: true,
     });
-  
+
+    html2canvas(document.getElementById("screenshot"), {
+      onclone: function (clonedDoc) {
+        clonedDoc.getElementById("screenshot").style.display = "block";
+      },
+    }).then(function (canvas) {
+      console.log("modal show");
+      canvas.style.height = "70%";
+      canvas.style.width = "100%";
+      document.getElementById("screenshot-result").appendChild(canvas);
+    });
   }
 
-  load() {
-    
-  }
+  load() {}
 
   changeChart(newChart, name) {
     let new_rangeConstructorPage = this.props.rangeConstructorPage;
@@ -150,16 +143,15 @@ class RangeConstructorPage extends React.Component {
     return (
       <div className="wrapper">
         <VerticallyCenteredModal
-        show={this.state.modalShow}
-        onHide={() => {
-          this.setState({
-            modalShow: false
-          })}}
-        heading={"Chart Screenshot"}
+          show={this.state.modalShow}
+          onHide={() => {
+            this.setState({
+              modalShow: false,
+            });
+          }}
+          heading={"Chart Screenshot"}
         >
-          <div id="screenshot-result">
-
-          </div>
+          <div id="screenshot-result"></div>
         </VerticallyCenteredModal>
         <div className="d-flex justify-content-center">
           <div className="d-flex flex-column justify-content-between left-panel">
@@ -194,7 +186,9 @@ class RangeConstructorPage extends React.Component {
               resetAllCharts={() =>
                 this.props.resetAllCharts(this.state.chart_title)
               }
-              download={() => {this.download()}}
+              download={() => {
+                this.download();
+              }}
               save={() => {
                 this.save();
               }}
@@ -205,14 +199,10 @@ class RangeConstructorPage extends React.Component {
           </div>
           <div class="d-flex flex-row mb-10">
             {this.state.saved === true ? (
-          <Alert
-            className="alert-div"
-            key={"success"}
-            variant={"success"}
-          >
-            Saved Successfully!
-          </Alert>
-        ) : null}
+              <Alert className="alert-div" key={"success"} variant={"success"}>
+                Saved Successfully!
+              </Alert>
+            ) : null}
           </div>
         </div>
       </div>

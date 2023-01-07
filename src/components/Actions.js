@@ -1,5 +1,5 @@
 import React from "react";
-import { vs_3betcold, rfi_vs_3bet, vs_rfi, rfi, positions } from "./../data.js";
+import { positions } from "./../data.js";
 
 function Action(props) {
   return props.action === props.value ? (
