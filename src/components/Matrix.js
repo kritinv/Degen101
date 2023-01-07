@@ -18,12 +18,13 @@ function Box(props) {
 // Matrix component
 // matrix state has prop chart
 class Matrix extends React.Component {
-  generateMatrixRow(row, row_preflop) {
+  generateMatrixRow(row, row_preflop, index) {
     return (
-      <div>
+      <div key={index}>
         {row.map((hand, index) => {
           return (
             <Box
+              key={hand}
               value={hand}
               action={row_preflop[index]}
               onMouseOver={() =>
@@ -41,9 +42,9 @@ class Matrix extends React.Component {
 
   generateMatrix(matrix, preflop_chart) {
     return (
-      <div className="matrix">
+      <div className="matrix matrix-joyride">
         {matrix.map((row, index) => {
-          return this.generateMatrixRow(row, preflop_chart[index]);
+          return this.generateMatrixRow(row, preflop_chart[index], index);
         })}
       </div>
     );

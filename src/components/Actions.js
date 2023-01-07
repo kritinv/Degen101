@@ -3,11 +3,11 @@ import { vs_3betcold, rfi_vs_3bet, vs_rfi, rfi, positions } from "./../data.js";
 
 function Action(props) {
   return props.action === props.value ? (
-    <button className="action action-on" onClick={props.changeAction}>
+    <button className="action-on action" onClick={props.changeAction}>
       {props.value}
     </button>
   ) : (
-    <button className="action action-off" onClick={props.changeAction}>
+    <button className="action-off action" onClick={props.changeAction}>
       {props.value}
     </button>
   );
@@ -15,27 +15,23 @@ function Action(props) {
 
 function Position(props) {
   return props.curr_index === props.index ? (
-    <div>
-      <button className="position position-on">{props.value}</button>
-    </div>
+    <button className="position position-on">{props.value}</button>
   ) : (
-    <div>
-      <button
-        className="position position-off"
-        onClick={props.changeCurrPosition}
-      >
-        {props.value}
-      </button>
-    </div>
+    <button
+      className="position position-off"
+      onClick={props.changeCurrPosition}
+    >
+      {props.value}
+    </button>
   );
 }
 
-function PositionDead(props) {
-  return <button className="position position-dead">{props.value}</button>;
+function ActionOff(props) {
+  return <button className="action action-dead">{props.value}</button>;
 }
 
-function ActionDead(props) {
-  return <button className="action action-dead">{props.value}</button>;
+function PositionOff(props) {
+  return <button className="position position-dead">{props.value}</button>;
 }
 
 class Actions extends React.Component {
@@ -44,21 +40,14 @@ class Actions extends React.Component {
     this.actions = props.homepage.actions;
     this.curr_index = props.homepage.curr_index;
     this.open_pos = props.homepage.open_pos;
-    this.curr_chart = props.homepage.curr_chart;
-    this.state = {
-      chart_title: "UTG Open",
-      cannot_open_idx_start: 1,
-      cannot_raise_idx_end: -1,
-      cannot_raise_idx_start: 9,
-    };
+    this.chart_title = props.homepage.chart_title;
+    this.cannot_open_idx_start = props.homepage.cannot_open_idx_start;
+    this.cannot_raise_idx_end = props.homepage.cannot_raise_idx_end;
+    this.cannot_raise_idx_start = props.homepage.cannot_raise_idx_start;
   }
 
   // update action based on pressed buttons (R/O/F)
   changeAction(index, action) {
-    let new_cannot_raise_idx_end = this.state.cannot_raise_idx_end;
-    let new_cannot_raise_idx_start = this.state.cannot_raise_idx_start;
-    let new_chart_title = this.state.chart_title;
-
     this.actions[index] = action;
     if (action === "O") {
       this.open_pos = index;
@@ -72,18 +61,16 @@ class Actions extends React.Component {
 
       if (index === this.curr_index) {
         // case when opening is equal to current position
-        this.curr_chart = rfi[this.open_pos];
-        new_chart_title = positions[index] + " RFI";
-        new_cannot_raise_idx_start = 9;
-        new_cannot_raise_idx_end = index;
+        this.chart_title = positions[index] + " RFI";
+        this.cannot_raise_idx_start = 9;
+        this.cannot_raise_idx_end = index;
       } else {
         // case when opening is before current position
-        this.curr_chart =
-          vs_rfi[this.open_pos][this.curr_index - this.open_pos - 1];
-        new_chart_title =
-          positions[this.curr_index] + " vs. " + positions[index] + " RFI";
-        new_cannot_raise_idx_start = this.curr_index;
-        new_cannot_raise_idx_end = this.open_pos - 1;
+
+        this.chart_title =
+          positions[this.curr_index] + " vs " + positions[index] + " RFI";
+        this.cannot_raise_idx_start = this.curr_index;
+        this.cannot_raise_idx_end = this.open_pos - 1;
       }
     } else if (action === "R") {
       // ensures that you can only raise once in a game
@@ -93,59 +80,49 @@ class Actions extends React.Component {
         }
       }
       if (index < this.curr_index && index > this.open_pos) {
-        this.curr_chart = vs_3betcold[this.curr_index - 2];
-        new_chart_title =
-          positions[this.curr_index] +
-          " vs. " +
-          positions[index] +
-          " 3-bet Cold";
+        this.chart_title =
+          positions[this.curr_index] + " vs " + positions[index] + " 3-bet";
       }
       if (index > this.curr_index) {
-        this.curr_chart =
-          rfi_vs_3bet[this.curr_index][index - this.curr_index - 1];
-        new_chart_title =
-          positions[this.curr_index] +
-          " RFI vs. " +
-          positions[index] +
-          " 3-bet";
+        this.chart_title =
+          positions[this.curr_index] + " RFI vs " + positions[index] + " 3-bet";
       }
     } else if (action === "F") {
       this.changeAction(this.open_pos, "O");
       return;
     }
 
-    console.log(new_chart_title);
-    this.setState({
-      chart_title: new_chart_title,
-      cannot_raise_idx_end: new_cannot_raise_idx_end,
-      cannot_raise_idx_start: new_cannot_raise_idx_start,
-    });
     let new_homepage = this.props.homepage;
+    new_homepage.chart_title = this.chart_title;
     new_homepage.actions = this.actions;
     new_homepage.open_pos = this.open_pos;
-    new_homepage.curr_chart = this.curr_chart;
+    new_homepage.cannot_raise_idx_start = this.cannot_raise_idx_start;
+    new_homepage.cannot_raise_idx_end = this.cannot_raise_idx_end;
     this.props.updateHomePage(new_homepage);
   }
 
   // update action and position based on pressed button position
   changeCurrPosition(index) {
-    let new_cannot_open_idx_start = index + 1;
-    this.setState({ cannot_open_idx_start: new_cannot_open_idx_start });
+    let new_homepage = this.props.homepage;
     this.curr_index = index;
+    this.cannot_open_idx_start = index + 1;
+    new_homepage.curr_index = this.curr_index;
+    new_homepage.cannot_open_idx_start = this.cannot_open_idx_start;
+    this.props.updateHomePage(new_homepage);
     this.changeAction(index, "O");
   }
 
   render() {
     return (
-      <div>
-        <div className="actions">
-          <button className="chart-title chart-title-joyride">
-            {this.state.chart_title}
-          </button>
+      <div className="actions">
+        <div className="chart-title chart-title-joyride d-flex flex-column justify-content-center">
+          <div>{this.chart_title}</div>
+        </div>
+        <div className="action-button-wrapper">
           {positions.map((i, index) => {
             if (index >= 9 - this.props.homepage.num_players) {
               return (
-                <div className="action-joyride actions-row d-flex">
+                <div key={index} className="actions-row d-flex action-joyride">
                   <Position
                     value={i}
                     curr_index={this.curr_index}
@@ -155,8 +132,8 @@ class Actions extends React.Component {
                     }}
                   ></Position>
 
-                  {index > this.state.cannot_raise_idx_end &&
-                  index < this.state.cannot_raise_idx_start &&
+                  {index > this.cannot_raise_idx_end &&
+                  index < this.cannot_raise_idx_start &&
                   index !== this.open_pos ? (
                     <Action
                       value={"R"}
@@ -166,10 +143,10 @@ class Actions extends React.Component {
                       }}
                     ></Action>
                   ) : (
-                    <ActionDead value="R"></ActionDead>
+                    <ActionOff value="R"></ActionOff>
                   )}
 
-                  {index < this.state.cannot_open_idx_start && index < 8 ? (
+                  {index < this.cannot_open_idx_start && index !== 8 ? (
                     <Action
                       value={"O"}
                       action={this.actions[index]}
@@ -178,7 +155,7 @@ class Actions extends React.Component {
                       }}
                     ></Action>
                   ) : (
-                    <ActionDead value={"O"}></ActionDead>
+                    <ActionOff value={"O"}></ActionOff>
                   )}
 
                   {index !== this.open_pos ? (
@@ -190,16 +167,16 @@ class Actions extends React.Component {
                       }}
                     ></Action>
                   ) : (
-                    <ActionDead value={"F"}></ActionDead>
+                    <ActionOff value={"F"}></ActionOff>
                   )}
                 </div>
               );
             } else {
               return (
-                <div className="d-flex">
-                  <PositionDead value={i}></PositionDead>
+                <div className="actions-row d-flex">
+                  <PositionOff value={i}></PositionOff>
                   {["R", "O", "F"].map((a) => {
-                    return <ActionDead value={a}></ActionDead>;
+                    return <ActionOff value={a}></ActionOff>;
                   })}
                 </div>
               );

@@ -12,22 +12,58 @@ function Navigation(props) {
         ></Players>
       </div>
       <div className="nav">
-        {/*<button
-          className="page"
+        {props.curr_page === "homePage" ? (
+          <button
+          className="page text-white fw-bold btn-block"
           onClick={() => {
+            props.endTutorial();
             props.changePage("homePage");
           }}
-        >
-          Home
-        </button>
-        <button
-          className="page"
+          >
+            Home
+          </button>
+        ):(
+          <button
+          className="page btn-block"
           onClick={() => {
+            props.endTutorial();
+            props.changePage("homePage");
+          }}
+          >
+            Home
+          </button>
+        )}
+        
+        {props.curr_page === "rangeConstructorPage" ? (
+          <button
+          className="endTutorial page range-constructor-button-joyride btn-block text-white fw-bold"
+          onClick={() => {
+            props.endTutorial();
             props.changePage("rangeConstructorPage");
           }}
+          >
+            Range Constructor
+          </button>
+        ):(
+          <button
+          className="endTutorial page range-constructor-button-joyride btn-block"
+          onClick={() => {
+            props.endTutorial();
+            props.changePage("rangeConstructorPage");
+          }}
+          >
+            Range Constructor
+          </button>
+        )}
+        
+        <button
+          className="tutorial"
+          onClick={() => {
+            props.startTutorial();
+          }}
         >
-          Range Constructor
-        </button>*/}
+          Tutorial
+        </button>
       </div>
     </div>
   );

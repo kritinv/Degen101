@@ -1643,4 +1643,58 @@ const vs_3betcold = [
 
 ////////////////////////////////////////////////////////////////////////
 
-export { vs_3betcold, rfi_vs_3bet, vs_rfi, rfi, std_matrix, positions };
+let tutorial = [
+  {
+    target: ".action-joyride",
+    content:
+      "Select your position and record other players’ actions (R = Raise, O = Open, F = Fold) here. Degen101 currently supports RFI, vs RFI, RFI vs 3-bet, and vs 3-bet cold ranges.",
+  },
+  {
+    target: ".chart-title-joyride",
+    content: "This is the chart corresponding to the table action.",
+  },
+  {
+    target: ".players-joyride",
+    content:
+      "You can adjust the number of players here. The maximum number of players is 9, and the minimum number of players is 3.",
+  },
+  {
+    target: ".matrix-joyride",
+    content:
+      "You can view hand suggestions here! There are 4 categories of suggestions: Raise, Call, Bluff Raise, and Fold.",
+  },
+  {
+    target: ".right-panel-joyride",
+    content: "More information about the chart can be found here.",
+  },
+  {
+    target: ".range-constructor-button-joyride",
+    content:
+      "To edit our charts or construct your own ranges, navigate to the range constructor page.",
+  },
+  {
+    target: ".file-tree-joyride",
+    content:
+      "Navigate through the different charts here and select the one you want to edit.",
+  },
+  {
+    target: ".legend-joyride",
+    content: "Select Raise, Call, or Bluff to edit the chart accordingly.",
+  },
+  {
+    target: ".select-matrix-joyride",
+    content: "Finally, you can edit your chart here!",
+  },
+];
+
+////////////////////////////////////////////////////////////////////////
+
+export {
+  tutorial,
+  vs_3betcold,
+  rfi_vs_3bet,
+  vs_rfi,
+  rfi,
+  std_matrix,
+  positions,
+};
