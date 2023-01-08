@@ -265,7 +265,9 @@ class Page extends React.Component {
                   <div className="legend-joyride legend-box">
                     {["Raise", "Call", "Bluff Raise", "Fold"].map((ele, i) => {
                       // calculate percentage
-                      let chart = this.state.homePage.curr_chart;
+                      let chart = this.state.homePage.treeFileRoot.find(
+                        this.state.homePage.chart_title
+                      ).value;
                       let combos = 0;
                       for (var r = 0; r < chart.length; r++) {
                         for (var c = 0; c < chart[r].length; c++) {

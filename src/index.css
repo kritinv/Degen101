@@ -50,7 +50,7 @@ body {
 
 .wrapper {
   vertical-align: middle;
-  margin-top: calc(var(--screenheight) * 0.149px);
+  margin-top: calc(var(--screenheight) * 0.12px);
   width: 100%;
   height: 81vh;
   min-width: calc(var(--screenwidth) * 1px);
@@ -124,7 +124,7 @@ body {
 }
 
 .action-button-wrapper {
-  height: 100%;
+  height: 85%;
   background-color: var(--dark-green);
   display: flex;
   flex-direction: column;
@@ -180,8 +180,8 @@ body {
   color: var(--black);
 }
 .position-on {
-  background-color: var(--cream);
-  color: var(--black);
+  background-color: var(--medium-brown);
+  color: var(--white);
 }
 .position-dead {
   background-color: var(--grey);
@@ -196,8 +196,8 @@ body {
   color: var(--black);
 }
 .action-on {
-  background-color: var(--cream);
-  color: var(--black);
+  background-color: var(--medium-brown);
+  color: var(--white);
 }
 .action-dead {
   background-color: var(--grey);
@@ -363,7 +363,7 @@ body {
 .tree-item-component:hover {
   border: transparent;
   margin-bottom: calc(var(--screenheight) * 1px * 0.02);
-  color: var(--grey);
+  color: var(--cream);
   font-size: calc(var(--screenheight) * 1px * 0.023);
 }
 
@@ -382,7 +382,7 @@ body {
 }
 
 .tree-item-component-disable {
-  color: var(--cream);
+  color: var(--medium-brown);
 }
 
 /*******************************************************************/

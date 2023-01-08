@@ -33,7 +33,7 @@ class RangeConstructorMatrix extends React.Component {
       <div className="d-flex select-matrix-joyride">
         <div id="screenshot" class="screenshot">
           <div className="chart-title-screenshot d-flex flex-column justify-content-center">
-              <div>{this.props.chart_title}</div>
+            <div>{this.props.chart_title}</div>
           </div>
           <Matrix
             curr_chart={this.props.curr_chart}
@@ -46,17 +46,14 @@ class RangeConstructorMatrix extends React.Component {
         </div>
 
         <Matrix
-            curr_chart={this.props.curr_chart}
-            chart={this.state.chart}
-            onMouseDown={(hand, action) => {
-              this.props.onMouseDown(hand, action);
-            }}
-            onMouseOver={(i, j) => {
-              
-            }}
-            selected_id={this.state.selected_id}
+          curr_chart={this.props.curr_chart}
+          chart={this.state.chart}
+          onMouseDown={(hand, action) => {
+            this.props.onMouseDown(hand, action);
+          }}
+          onMouseOver={(i, j) => {}}
+          selected_id={this.state.selected_id}
         ></Matrix>
-        
 
         <div className="right-panel d-flex flex-column justify-content-spacebetween">
           <div className="legend-joyride legend-container-new flex-column">
@@ -64,7 +61,7 @@ class RangeConstructorMatrix extends React.Component {
               <h4>Select</h4>
 
               {["Raise", "Call", "Bluff Raise"].map((ele, i) => {
-                let chart = this.state.curr_chart;
+                let chart = this.props.curr_chart;
                 let combos = 0;
                 for (var r = 0; r < chart.length; r++) {
                   for (var c = 0; c < chart[r].length; c++) {

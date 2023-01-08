@@ -109,7 +109,11 @@ class Actions extends React.Component {
     new_homepage.curr_index = this.curr_index;
     new_homepage.cannot_open_idx_start = this.cannot_open_idx_start;
     this.props.updateHomePage(new_homepage);
-    this.changeAction(index, "O");
+    if (index === 8) {
+      this.changeAction(0, "O");
+    } else {
+      this.changeAction(index, "O");
+    }
   }
 
   render() {
