@@ -213,7 +213,8 @@ class Page extends React.Component {
       navigator.userAgent.match(/iPad/i) ||
       navigator.userAgent.match(/iPod/i) ||
       navigator.userAgent.match(/BlackBerry/i) ||
-      navigator.userAgent.match(/Windows Phone/i)
+      navigator.userAgent.match(/Windows Phone/i) ||
+      window.innerHeight > window.innerWidth
     ) {
       this.mobile = true;
     }
