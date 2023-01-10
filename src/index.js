@@ -231,7 +231,7 @@ class Page extends React.Component {
         />
         {/* Navigation Bar */}
         <Navigation
-          mobile={this.state.mobile}
+          mobile={this.mobile}
           startTutorial={() => this.startTutorial()}
           endTutorial={() => this.endTutorial()}
           updateHomePage={(i) => this.updateHomePage(i)}
