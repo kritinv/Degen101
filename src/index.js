@@ -20,13 +20,13 @@ import { Tree, deepCopyTree } from "./components/resource/tree.js";
 class Page extends React.Component {
   constructor(props) {
     super(props);
+    this.mobile = false;
 
     this.state = {
       first_load: true,
       curr_page: "homePage",
       run: false,
       steps: tutorial,
-      mobile: false,
       stepIndex: 0,
       homePage: {
         chart_title: "UTG RFI",
@@ -202,7 +202,7 @@ class Page extends React.Component {
       } else {
         r.style.setProperty("--screenheight", 770);
         r.style.setProperty("--screenwidth", 1440);
-        this.state.mobile = true;
+        this.mobile = true;
       }
       this.setState({ first_load: false });
     }
@@ -215,7 +215,7 @@ class Page extends React.Component {
       navigator.userAgent.match(/BlackBerry/i) ||
       navigator.userAgent.match(/Windows Phone/i)
     ) {
-      this.state.mobile = true;
+      this.mobile = true;
     }
 
     return (
