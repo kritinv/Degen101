@@ -26,6 +26,7 @@ class Page extends React.Component {
       curr_page: "homePage",
       run: false,
       steps: tutorial,
+      mobile: false,
       stepIndex: 0,
       homePage: {
         chart_title: "UTG RFI",
@@ -194,9 +195,27 @@ class Page extends React.Component {
   render() {
     if (this.state.first_load) {
       var r = document.querySelector(":root");
-      r.style.setProperty("--screenheight", window.screen.availHeight * 0.9);
-      r.style.setProperty("--screenwidth", window.screen.width);
+
+      if (window.screen.availHeight > 600 && window.screen.width > 600) {
+        r.style.setProperty("--screenheight", window.screen.availHeight * 0.9);
+        r.style.setProperty("--screenwidth", window.screen.width);
+      } else {
+        r.style.setProperty("--screenheight", 770);
+        r.style.setProperty("--screenwidth", 1440);
+        this.state.mobile = true;
+      }
       this.setState({ first_load: false });
+    }
+    if (
+      navigator.userAgent.match(/Android/i) ||
+      navigator.userAgent.match(/webOS/i) ||
+      navigator.userAgent.match(/iPhone/i) ||
+      navigator.userAgent.match(/iPad/i) ||
+      navigator.userAgent.match(/iPod/i) ||
+      navigator.userAgent.match(/BlackBerry/i) ||
+      navigator.userAgent.match(/Windows Phone/i)
+    ) {
+      this.state.mobile = true;
     }
 
     return (
@@ -212,6 +231,7 @@ class Page extends React.Component {
         />
         {/* Navigation Bar */}
         <Navigation
+          mobile={this.state.mobile}
           startTutorial={() => this.startTutorial()}
           endTutorial={() => this.endTutorial()}
           updateHomePage={(i) => this.updateHomePage(i)}
